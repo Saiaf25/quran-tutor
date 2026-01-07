@@ -106,13 +106,14 @@ body[dir="rtl"] .language-toggle {
     gap: 20px;
 }
 
-.logo-icon {
-    width: 60px;
-    height: 60px;
+.logo-image {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
     transition: transform 0.3s ease;
 }
 
-.logo-icon:hover {
+.logo-image:hover {
     transform: scale(1.05);
 }
 
@@ -541,9 +542,9 @@ body[dir="rtl"] .language-toggle {
         font-size: 22px;
     }
 
-    .logo-icon {
-        width: 45px;
-        height: 45px;
+    .logo-image {
+        width: 35px;
+        height: 35px;
     }
 
     .hero-title {
