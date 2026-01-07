@@ -106,15 +106,15 @@ body[dir="rtl"] .language-toggle {
     gap: 20px;
 }
 
-.quran-icon {
+.logo-image {
     width: 80px;
     height: 80px;
-    color: var(--secondary-color);
+    object-fit: contain;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
     transition: transform 0.3s ease;
 }
 
-.quran-icon:hover {
+.logo-image:hover {
     transform: scale(1.05);
 }
 
@@ -543,9 +543,9 @@ body[dir="rtl"] .language-toggle {
         font-size: 22px;
     }
 
-    .quran-icon {
-        width: 40px;
-        height: 40px;
+    .logo-image {
+        width: 60px;
+        height: 60px;
     }
 
     .hero-title {
