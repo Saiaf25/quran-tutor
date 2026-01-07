@@ -1,53 +1,53 @@
 // Language switching functionality
-let currentLang = 'en';
+let currentLang = 'ar'; // Default to Arabic
 
 function initLanguage() {
     // Check for saved language preference
     const savedLang = localStorage.getItem('preferredLanguage');
     if (savedLang) {
         currentLang = savedLang;
-        if (currentLang === 'ar') {
-            switchLanguage();
-        }
     }
+
+    // Set the dropdown to the current language
+    document.getElementById('lang-select').value = currentLang;
+
+    // Apply the language
+    applyLanguage(currentLang);
 }
 
-function switchLanguage() {
+function applyLanguage(lang) {
     const html = document.documentElement;
     const body = document.body;
 
-    if (currentLang === 'en') {
-        currentLang = 'ar';
-        html.setAttribute('lang', 'ar');
+    // Update HTML attributes
+    html.setAttribute('lang', lang);
+
+    // Set direction based on language
+    if (lang === 'ar') {
         body.setAttribute('dir', 'rtl');
-
-        // Hide English content, show Arabic content
-        document.querySelectorAll('.lang-en').forEach(el => {
-            el.style.display = 'none';
-        });
-        document.querySelectorAll('.lang-ar').forEach(el => {
-            el.style.display = '';
-        });
     } else {
-        currentLang = 'en';
-        html.setAttribute('lang', 'en');
         body.setAttribute('dir', 'ltr');
-
-        // Hide Arabic content, show English content
-        document.querySelectorAll('.lang-ar').forEach(el => {
-            el.style.display = 'none';
-        });
-        document.querySelectorAll('.lang-en').forEach(el => {
-            el.style.display = '';
-        });
     }
 
+    // Hide all language content first
+    document.querySelectorAll('.lang-en, .lang-ar, .lang-tr').forEach(el => {
+        el.style.display = 'none';
+    });
+
+    // Show content for selected language
+    document.querySelectorAll(`.lang-${lang}`).forEach(el => {
+        el.style.display = '';
+    });
+
     // Save language preference
-    localStorage.setItem('preferredLanguage', currentLang);
+    localStorage.setItem('preferredLanguage', lang);
+    currentLang = lang;
 }
 
-// Language toggle button event listener
-document.getElementById('lang-btn').addEventListener('click', switchLanguage);
+// Language dropdown event listener
+document.getElementById('lang-select').addEventListener('change', function(e) {
+    applyLanguage(e.target.value);
+});
 
 // Contact form handling
 document.getElementById('contact-form').addEventListener('submit', function(e) {
@@ -60,30 +60,16 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
         message: document.getElementById('message').value
     };
 
-    // In a real implementation, you would send this data to a server
-    // For now, we'll create a mailto link with the form data
-    const subject = currentLang === 'en'
-        ? `New Contact Form Submission from ${formData.name}`
-        : `رسالة جديدة من ${formData.name}`;
+    // Create WhatsApp message based on current language
+    let whatsappMessage;
 
-    const body = currentLang === 'en'
-        ? `Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone}
-
-Message:
-${formData.message}`
-        : `الاسم: ${formData.name}
-البريد الإلكتروني: ${formData.email}
-رقم الهاتف: ${formData.phone}
-
-الرسالة:
-${formData.message}`;
-
-    // Create WhatsApp message
-    const whatsappMessage = currentLang === 'en'
-        ? `Hello Sheikh Gamal,\n\nMy name is ${formData.name}\nEmail: ${formData.email}\n${formData.phone ? `Phone: ${formData.phone}\n` : ''}\nMessage: ${formData.message}`
-        : `السلام عليكم الشيخ جمال،\n\nاسمي ${formData.name}\nالبريد الإلكتروني: ${formData.email}\n${formData.phone ? `رقم الهاتف: ${formData.phone}\n` : ''}\nالرسالة: ${formData.message}`;
+    if (currentLang === 'ar') {
+        whatsappMessage = `السلام عليكم الشيخ جمال،\n\nاسمي ${formData.name}\nالبريد الإلكتروني: ${formData.email}\n${formData.phone ? `رقم الهاتف: ${formData.phone}\n` : ''}\nالرسالة: ${formData.message}`;
+    } else if (currentLang === 'tr') {
+        whatsappMessage = `Merhaba Şeyh Cemal,\n\nAdım ${formData.name}\nE-posta: ${formData.email}\n${formData.phone ? `Telefon: ${formData.phone}\n` : ''}\nMesaj: ${formData.message}`;
+    } else {
+        whatsappMessage = `Hello Sheikh Gamal,\n\nMy name is ${formData.name}\nEmail: ${formData.email}\n${formData.phone ? `Phone: ${formData.phone}\n` : ''}\nMessage: ${formData.message}`;
+    }
 
     const whatsappUrl = `https://wa.me/905524423135?text=${encodeURIComponent(whatsappMessage)}`;
 
