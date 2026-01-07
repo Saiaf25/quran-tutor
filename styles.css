@@ -92,12 +92,15 @@ body[dir="rtl"] .language-toggle {
     color: var(--white);
     padding: 30px 0;
     box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 
 .header-content {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .logo {
@@ -120,6 +123,81 @@ body[dir="rtl"] .language-toggle {
 .logo h1 {
     font-size: 28px;
     font-weight: 700;
+}
+
+/* Header WhatsApp Button */
+.header-whatsapp-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--whatsapp);
+    color: var(--white);
+    padding: 12px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.header-whatsapp-btn:hover {
+    background: #20ba5a;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.whatsapp-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+.header-whatsapp-text {
+    font-family: 'Amiri', serif;
+}
+
+/* Floating WhatsApp Button */
+.floating-whatsapp {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: var(--whatsapp);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+body[dir="rtl"] .floating-whatsapp {
+    right: auto;
+    left: 20px;
+}
+
+.floating-whatsapp:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
+.floating-whatsapp svg {
+    width: 32px;
+    height: 32px;
+    fill: var(--white);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.7);
+    }
 }
 
 /* Hero Section */
@@ -521,6 +599,18 @@ body[dir="rtl"] .language-toggle {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .header-whatsapp-btn {
+        display: none;
+    }
+
+    .floating-whatsapp {
+        display: flex;
+    }
+
+    .header-content {
+        justify-content: center;
+    }
+
     .hero-title {
         font-size: 32px;
     }
