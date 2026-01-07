@@ -1,0 +1,516 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2d5f3f;
+    --secondary-color: #f4a261;
+    --accent-color: #e76f51;
+    --bg-light: #f8f9fa;
+    --text-dark: #2b2d42;
+    --text-light: #8d99ae;
+    --white: #ffffff;
+    --success: #06d6a0;
+    --error: #ef476f;
+    --whatsapp: #25d366;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    direction: ltr;
+}
+
+body[dir="rtl"] {
+    direction: rtl;
+}
+
+body[dir="rtl"] * {
+    font-family: 'Amiri', serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Language Toggle */
+.language-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+body[dir="rtl"] .language-toggle {
+    right: auto;
+    left: 20px;
+}
+
+.lang-btn {
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    background: #234830;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1a3d28 100%);
+    color: var(--white);
+    padding: 30px 0;
+    box-shadow: var(--shadow);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.quran-icon {
+    width: 80px;
+    height: 80px;
+    color: var(--secondary-color);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.quran-icon:hover {
+    transform: scale(1.05);
+}
+
+.logo h1 {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, rgba(45, 95, 63, 0.05) 0%, rgba(244, 162, 97, 0.05) 100%);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    color: var(--text-light);
+    margin-bottom: 50px;
+}
+
+.hero-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.feature-item {
+    background: var(--white);
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.feature-icon {
+    font-size: 40px;
+}
+
+.feature-item h3 {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.feature-desc {
+    font-size: 15px;
+    color: var(--text-light);
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* About Section */
+.about {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-dark);
+}
+
+/* Why Choose Us Section */
+.why-choose-us {
+    padding: 80px 0;
+    background: var(--bg-light);
+}
+
+.why-choose-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.why-item {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.why-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.why-icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.why-item h4 {
+    font-size: 20px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.why-item p {
+    color: var(--text-light);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Contact Section */
+.contact {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.quick-contact {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px 30px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--white);
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.btn-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.call-btn {
+    background: linear-gradient(135deg, var(--accent-color) 0%, #d64933 100%);
+}
+
+.call-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.whatsapp-btn {
+    background: linear-gradient(135deg, var(--whatsapp) 0%, #20ba5a 100%);
+}
+
+.whatsapp-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.contact-divider {
+    text-align: center;
+    margin: 40px 0;
+    position: relative;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.contact-divider::before,
+.contact-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: var(--text-light);
+}
+
+.contact-divider::before {
+    left: 0;
+}
+
+.contact-divider::after {
+    right: 0;
+}
+
+/* Contact Form */
+.contact-form-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.form-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1a3d28 100%);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.form-message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.form-message.success {
+    background: #d4f4e8;
+    color: #0f5132;
+}
+
+.form-message.error {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Footer */
+.footer {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 30px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.phone-number a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.phone-number a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .contact-form-wrapper {
+        padding: 30px 20px;
+    }
+
+    .hero-features {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-contact {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-divider::before,
+    .contact-divider::after {
+        width: 35%;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 22px;
+    }
+
+    .quran-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .language-toggle {
+        top: 10px;
+        right: 10px;
+    }
+
+    body[dir="rtl"] .language-toggle {
+        right: auto;
+        left: 10px;
+    }
+}
+
+/* RTL Specific Adjustments */
+body[dir="rtl"] .hero-title,
+body[dir="rtl"] .section-title {
+    font-family: 'Amiri', serif;
+    font-weight: 700;
+}
+
+body[dir="rtl"] .about-content p,
+body[dir="rtl"] .hero-subtitle {
+    font-family: 'Amiri', serif;
+    line-height: 2;
+}
+
+body[dir="rtl"] .form-group input,
+body[dir="rtl"] .form-group textarea {
+    text-align: right;
+}
