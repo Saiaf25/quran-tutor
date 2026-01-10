@@ -1,5 +1,5 @@
 // Language switching functionality
-let currentLang = 'ar'; // Default to Arabic
+let currentLang = 'en'; // Default to English
 
 function initLanguage() {
     // Check for saved language preference
